@@ -1,0 +1,12 @@
+{
+  "name": "betterlife",
+  "version": "1.0.0",
+  "description": "start at 2024-11-20.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
