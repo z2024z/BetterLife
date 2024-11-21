@@ -18,4 +18,16 @@ let eLeMe = 756.48 //12-10
 //4 per month. subsidy
 
 // store data in sqlite3.
-console.log('[ write today status in sqlite3. ]'+new Date(Date.now()));
+// console.log('[ write today status in sqlite3. ]'+new Date(Date.now()));
+
+// If tomorrow  ,6 + 14 +15 =35 *30 =1050.
+
+const express = require('express')
+const app = express()
+app.get('/',(req,res) =>{
+    res.sendFile(__dirname + '/page/index.html')
+})
+app.listen(3000,()=>{
+    console.log('start server at port:3000');
+    
+})
