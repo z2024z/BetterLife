@@ -22,6 +22,7 @@ let eLeMe = 756.48 //12-10
 
 // If tomorrow  ,6 + 14 +15 =35 *30 =1050.
 
+/*
 const express = require('express')
 const app = express()
 app.get('/',(req,res) =>{
@@ -31,3 +32,5 @@ app.listen(3000,()=>{
     console.log('start server at port:3000');
     
 })
+*/
+
