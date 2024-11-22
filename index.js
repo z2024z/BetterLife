@@ -1,4 +1,4 @@
-console.log('[hello world for node.js 2024 ]'+new Date(Date.now()));
+// console.log('[hello world for node.js 2024 ]'+new Date(Date.now()));
 // console.log();
 // 2024-11-21 08:58:05
 // 2024-11-21 09:02:42
@@ -37,3 +37,27 @@ app.listen(3000,()=>{
 //two steamed stuffed bun. 2+2
 // one soybean milk. 3
 // lunch  15.
+// console.log('Give me your data description');
+
+// in :[today 's in&out] out:[one detailed report]
+// need store past data at sqlite3
+// datetime [1] thing [2] money_plus-minus [3]
+
+const sqlite3 = require('sqlite3').verbose()
+const db = new sqlite3.Database('./sqlite3/money.sqlite3',(err)=>{
+    if(err){
+        console.error(err.message);
+    }else{
+        console.log('connected to the sqlite3 database.');
+    }
+})
+db.run(
+    `create table if not exists money_thing(
+        id integer primary key autoincrement,
+        thing text not null,
+        money real not null
+    )`,(err)=>{
+        // console.error(err.message);
+        
+    }
+)
