@@ -34,3 +34,6 @@ app.listen(3000,()=>{
 })
 */
 
+//two steamed stuffed bun. 2+2
+// one soybean milk. 3
+// lunch  15.
