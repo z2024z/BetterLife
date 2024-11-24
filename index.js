@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 // console.log('[hello world for node.js 2024 ]'+new Date(Date.now()));
 // console.log();
 // 2024-11-21 08:58:05
@@ -7,11 +15,15 @@
 //lottery.schedule.moneyManage
 // 2024-11-22 00:03:17 record currentTime start.
 // How to ensure the life is continue.
+
+/*
 let huaBei20241122 = 2482.49 // repaymentDay 12-20
 let jieBei20241122 = 349.5 // repaymentDay 12-22
 let bankCard20241122 = 8069.98
 let weixinChangePocket = 660.42
 let eLeMe = 756.48 //12-10
+*/
+
 
 //I need  how much salary . to keep health env.
 //20 per month. salary
@@ -22,7 +34,7 @@ let eLeMe = 756.48 //12-10
 
 // If tomorrow  ,6 + 14 +15 =35 *30 =1050.
 
-
+/*
 const express = require('express')
 const app = express()
 app.get('/',(req,res) =>{
@@ -32,7 +44,7 @@ app.listen(3000,()=>{
     console.log('start server at port:3000');
     
 })
-
+*/
 
 //two steamed stuffed bun. 2+2
 // one soybean milk. 3
