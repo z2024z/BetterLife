@@ -16,7 +16,8 @@ function initDB_money() {
     });
   });
   */
-
+  // db.run(`update money_amount_thing set happen_time `)
+  // db.run(`create unique index happen_time2024 on money_amount_thing(happen_time)`)
   db.serialize(() => {
     /*
     db.run(`
@@ -35,7 +36,34 @@ function initDB_money() {
       `);
 
     // insert.run("test start", "2024-11-24", "2024-11-24", 0);
-    
+    // insert.run('ali-pay.huaBei','2024-11-24','2024-12-20',0)
+    /*
+    for (let i = 1; i <= 2; i++) {
+      insert.run("ali-pay.huaBei", "2024-11-24", "2025-0"+i+"-20", 2282.26);
+    }
+      */
+    /*
+    for (let i = 3; i <= 5; i++) {
+      insert.run("ali-pay.huaBei", "2024-11-24", "2025-0"+i+"-20", 1895.65);
+    }
+      */
+    /*
+    for (let i = 6; i <= 7; i++) {
+      insert.run("ali-pay.huaBei", "2024-11-24", "2025-0" + i + "-20", 895.74);
+    }
+      */
+    // insert.run("ali-pay.jieBei", "2024-11-24", "2025-12-22", 349.50);
+    // db.run('delete from money_amount_thing where id=10')
+    // insert.run("ali-pay.jieBei", "2024-11-24", "2024-12-22", 349.5);
+    let array =new Array(361.15,361.15,326.20,361.15,349.50,361.15,349.5,361.15,28361.15,2024.60)
+    // console.log(array.length);
+    /*
+    for(let i=1;i<=array.length;i++){
+      insert.run("ali-pay.jieBei", "2024-11-24", "2025-"+i+"-22", array[i-1]);
+    }
+      */
+    // insert.run("ali-pay.jieBei", "2024-11-24", "2025-10-22", array[array.length-1]);
+
   });
 
   db.close((err) => {
