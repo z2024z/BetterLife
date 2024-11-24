@@ -22,17 +22,17 @@ let eLeMe = 756.48 //12-10
 
 // If tomorrow  ,6 + 14 +15 =35 *30 =1050.
 
-/*
+
 const express = require('express')
 const app = express()
 app.get('/',(req,res) =>{
-    res.sendFile(__dirname + '/page/index.html')
+    res.sendFile(__dirname + '/Page/index.html')
 })
 app.listen(3000,()=>{
     console.log('start server at port:3000');
     
 })
-*/
+
 
 //two steamed stuffed bun. 2+2
 // one soybean milk. 3
@@ -43,6 +43,7 @@ app.listen(3000,()=>{
 // need store past data at sqlite3
 // datetime [1] thing [2] money_plus-minus [3]
 
+/*
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('./sqlite3/money.sqlite3',(err)=>{
     if(err){
@@ -61,4 +62,6 @@ db.run(
         
     }
 )
+*/
+
 //happen time() repetitions ()
