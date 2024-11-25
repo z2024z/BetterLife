@@ -1,5 +1,11 @@
 // loop in the world . make one database : [thing .record-time .happen-time .money-amount]
-initDB_money();
+// initDB_money();
+//money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
+// lottery ticket is another can try.
+lotteryTicket();
+function lotteryTicket() {
+  console.log("ssq .fc3d");
+}
 function initDB_money() {
   console.log("initial database for money-count.");
   // create db sqlite3.
