@@ -55,7 +55,18 @@ function initDB_money() {
     // insert.run("ali-pay.jieBei", "2024-11-24", "2025-12-22", 349.50);
     // db.run('delete from money_amount_thing where id=10')
     // insert.run("ali-pay.jieBei", "2024-11-24", "2024-12-22", 349.5);
-    let array =new Array(361.15,361.15,326.20,361.15,349.50,361.15,349.5,361.15,28361.15,2024.60)
+    let array = new Array(
+      361.15,
+      361.15,
+      326.2,
+      361.15,
+      349.5,
+      361.15,
+      349.5,
+      361.15,
+      28361.15,
+      2024.6
+    );
     // console.log(array.length);
     /*
     for(let i=1;i<=array.length;i++){
@@ -63,12 +74,35 @@ function initDB_money() {
     }
       */
     // insert.run("ali-pay.jieBei", "2024-11-24", "2025-10-22", array[array.length-1]);
-
+    // insert.run('bank.nh',"2024-11-25",'2024-11-25',5572.59)
+    db.all(
+      `select money_amount from money_amount_thing where id=3`,
+      (err, rows) => {
+        if (err) {
+          console.error(err.message);
+        } else {
+          rows.forEach((row) => {
+            console.log(row.money_amount);
+            /*
+            db.run(
+              `update money_amount_thing set money_amount = ? where id=3`,
+              -1*row.money_amount,
+              function (err) {
+                if (err) {
+                  console.error(err.message);
+                }
+              }
+            );
+            */
+          });
+        }
+      }
+    );
   });
 
   db.close((err) => {
     if (err) {
-      console.error(err.message);
+      // console.error(err.message);
     }
     console.log("close the database connection.");
   });
