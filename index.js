@@ -5,6 +5,7 @@
 lotteryTicket();
 function lotteryTicket() {
   console.log("ssq .fc3d");
+  //data store.
 }
 function initDB_money() {
   console.log("initial database for money-count.");
