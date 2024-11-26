@@ -8,6 +8,8 @@ lotteryTicket();
 function lotteryTicket() {
   // console.log("ssq .fc3d");
   //data store.
+  db.run(`create unique index happen_time2024L on union_lotto(happen_time)`);
+  return;
   db.serialize(() => {
     db.run(`
         create table if not exists union_lotto(
