@@ -1,17 +1,61 @@
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./db.sqlite3");
 // loop in the world . make one database : [thing .record-time .happen-time .money-amount]
 // initDB_money();
 //money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
 // lottery ticket is another can try.
 lotteryTicket();
 function lotteryTicket() {
-  console.log("ssq .fc3d");
+  // console.log("ssq .fc3d");
   //data store.
+  db.serialize(() => {
+    db.run(`
+        create table if not exists union_lotto(
+          id integer primary key  autoincrement,
+          happen_time date not null,
+          blue integer not null,
+          red1 integer not null,
+          red2 integer not null,
+          red3 integer not null,
+          red4 integer not null,
+          red5 integer not null,
+          red6 integer not null
+        )
+      `);
+    const fs = require("fs");
+    fs.readFile(
+      "./unionLottoOriginalData/unionLotto.json",
+      "utf-8",
+      (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        const json_data = JSON.parse(data);
+        // console.log(json_data);
+        console.log(json_data.result[0].date);
+        const insertOne = db.prepare(`
+            insert into union_lotto(happen_time,blue,red1,red2,red3,red4,red5,red6) values(?,?,?,?,?,?,?,?)
+          `);
+        for (let i = 0; i < json_data.pageSize; i++) {
+          insertOne.run(
+            json_data.result[i].date.slice(0, 10),
+            json_data.result[i].blue,
+            json_data.result[i].red.slice(0, 2),
+            json_data.result[i].red.slice(3, 2),
+            json_data.result[i].red.slice(6, 2),
+            json_data.result[i].red.slice(9, 2),
+            json_data.result[i].red.slice(12, 2),
+            json_data.result[i].red.slice(15, 2)
+          );
+        }
+      }
+    );
+  });
 }
 function initDB_money() {
   console.log("initial database for money-count.");
   // create db sqlite3.
-  const sqlite3 = require("sqlite3").verbose();
-  const db = new sqlite3.Database("./db.sqlite3");
   // create table money-amount-thing
   /*
   db.serialize(() => {
