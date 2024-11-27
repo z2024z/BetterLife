@@ -27,7 +27,7 @@ function lotteryTicket() {
         )
       `);
     const fs = require("fs");
-    for (let index_a = 5; index_a <= 14; index_a++) {
+    for (let index_a = 15; index_a <20; index_a++) {
       fs.readFile(
         "./unionLottoOriginalData/ul"+index_a+"-60.json",
         "utf-8",
