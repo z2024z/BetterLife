@@ -27,9 +27,9 @@ function lotteryTicket() {
         )
       `);
     const fs = require("fs");
-    for (let index_a = 15; index_a <20; index_a++) {
+    for (let index_a = 20; index_a < 61; index_a++) {
       fs.readFile(
-        "./unionLottoOriginalData/ul"+index_a+"-60.json",
+        "./unionLottoOriginalData/ul" + index_a + "-60.json",
         "utf-8",
         (err, data) => {
           if (err) {
@@ -49,6 +49,9 @@ function lotteryTicket() {
             }
           );
           for (let i = 0; i < json_data.pageSize; i++) {
+            if (json_data.result[i] == undefined) {
+              continue;
+            }
             insertOne.run(
               json_data.result[i].date.slice(0, 10),
               json_data.result[i].blue,
