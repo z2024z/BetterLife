@@ -1,3 +1,5 @@
+// const { error } = require("console");
+
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db.sqlite3");
 // loop in the world . make one database : [thing .record-time .happen-time .money-amount]
@@ -8,8 +10,8 @@ lotteryTicket();
 function lotteryTicket() {
   // console.log("ssq .fc3d");
   //data store.
-  db.run(`create unique index happen_time2024L on union_lotto(happen_time)`);
-  return;
+  // db.run(`create unique index happen_time2024L on union_lotto(happen_time)`);
+  // return;
   db.serialize(() => {
     db.run(`
         create table if not exists union_lotto(
@@ -25,34 +27,46 @@ function lotteryTicket() {
         )
       `);
     const fs = require("fs");
-    fs.readFile(
-      "./unionLottoOriginalData/unionLotto.json",
-      "utf-8",
-      (err, data) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        const json_data = JSON.parse(data);
-        // console.log(json_data);
-        console.log(json_data.result[0].date);
-        const insertOne = db.prepare(`
+    for (let index_a = 5; index_a <= 14; index_a++) {
+      fs.readFile(
+        "./unionLottoOriginalData/ul"+index_a+"-60.json",
+        "utf-8",
+        (err, data) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          const json_data = JSON.parse(data);
+          // console.log(json_data);
+          console.log(json_data.result[0].date);
+          const insertOne = db.prepare(
+            `
             insert into union_lotto(happen_time,blue,red1,red2,red3,red4,red5,red6) values(?,?,?,?,?,?,?,?)
-          `);
-        for (let i = 0; i < json_data.pageSize; i++) {
-          insertOne.run(
-            json_data.result[i].date.slice(0, 10),
-            json_data.result[i].blue,
-            json_data.result[i].red.slice(0, 2),
-            json_data.result[i].red.slice(3, 2),
-            json_data.result[i].red.slice(6, 2),
-            json_data.result[i].red.slice(9, 2),
-            json_data.result[i].red.slice(12, 2),
-            json_data.result[i].red.slice(15, 2)
+          `,
+            function (err) {
+              if (err) {
+              }
+            }
           );
+          for (let i = 0; i < json_data.pageSize; i++) {
+            insertOne.run(
+              json_data.result[i].date.slice(0, 10),
+              json_data.result[i].blue,
+              json_data.result[i].red.slice(0, 2),
+              json_data.result[i].red.slice(3, 2),
+              json_data.result[i].red.slice(6, 2),
+              json_data.result[i].red.slice(9, 2),
+              json_data.result[i].red.slice(12, 2),
+              json_data.result[i].red.slice(15, 2),
+              (err) => {
+                if (err) {
+                }
+              }
+            );
+          }
         }
-      }
-    );
+      );
+    }
   });
 }
 function initDB_money() {
