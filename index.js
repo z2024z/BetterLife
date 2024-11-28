@@ -6,7 +6,7 @@ const db = new sqlite3.Database("./db.sqlite3");
 // initDB_money();
 //money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
 // lottery ticket is another can try.
-// lotteryTicket();
+lotteryTicket();
 function lotteryTicket() {
   // console.log("ssq .fc3d");
   //data store.
@@ -48,8 +48,8 @@ function lotteryTicket() {
               }
             }
           );
-          console.log(json_data.result[i]);
-          
+          // console.log(json_data.result[1].red.slice(3,5));
+          // return;
           for (let i = 0; i < json_data.pageSize; i++) {
             if (json_data.result[i] == undefined) {
               continue;
