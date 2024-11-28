@@ -48,10 +48,15 @@ function lotteryTicket() {
               }
             }
           );
+          console.log(json_data.result[i]);
+          
           for (let i = 0; i < json_data.pageSize; i++) {
             if (json_data.result[i] == undefined) {
               continue;
             }
+            console.log("aaa."+json_data.result[1].red.slice(0,2));
+            
+            // return;
             insertOne.run(
               json_data.result[i].date.slice(0, 10),
               json_data.result[i].blue,
