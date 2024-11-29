@@ -7,6 +7,15 @@ const db = new sqlite3.Database("./db.sqlite3");
 //money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
 // lottery ticket is another can try.
 // lotteryTicket();
+// lotteryTicketTest();
+function lotteryTicketTest() {
+  console.log("try to test some way.");
+  db.each(`select happen_time,blue from union_lotto order by happen_time asc`, (err, row) => {
+    // console.log("data:" + row.happen_time+',blue:'+row.blue);
+    // console.log();
+    process.stdout.write(','+row.blue)
+  });
+}
 function lotteryTicket() {
   // console.log("ssq .fc3d");
   //data store.
