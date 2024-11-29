@@ -27,7 +27,7 @@ function lotteryTicket() {
         )
       `);
     const fs = require("fs");
-    for (let index_a = 20; index_a < 61; index_a++) {
+    for (let index_a = 1; index_a < 61; index_a++) {
       fs.readFile(
         "./unionLottoOriginalData/ul" + index_a + "-60.json",
         "utf-8",
@@ -37,7 +37,22 @@ function lotteryTicket() {
             return;
           }
           const json_data = JSON.parse(data);
+          const sql = `update union_lotto set red2=?,red3=?,red4=?,red5=?,red6=? where happen_time=?`;
+          for (let i1 = 0; i1 < json_data.pageSize; i1++) {
+            if (json_data.result[i1] == undefined) {
+              continue;
+            }
+            db.run(sql, [
+              json_data.result[i1].red.slice(3, 5),
+              json_data.result[i1].red.slice(6, 8),
+              json_data.result[i1].red.slice(9, 11),
+              json_data.result[i1].red.slice(12, 14),
+              json_data.result[i1].red.slice(15, 17),
+              json_data.result[i1].date.slice(0, 10),
+            ]);
+          }
           // console.log(json_data);
+          /*
           console.log(json_data.result[0].date);
           const insertOne = db.prepare(
             `
@@ -72,6 +87,7 @@ function lotteryTicket() {
               }
             );
           }
+            */
         }
       );
     }
