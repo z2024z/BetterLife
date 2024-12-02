@@ -7,14 +7,61 @@ const db = new sqlite3.Database("./db.sqlite3");
 //money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
 // lottery ticket is another can try.
 // lotteryTicket();
-// lotteryTicketTest();
+lotteryTicketTest();
 function lotteryTicketTest() {
-  console.log("try to test some way.");
-  db.each(`select happen_time,blue from union_lotto order by happen_time asc`, (err, row) => {
-    // console.log("data:" + row.happen_time+',blue:'+row.blue);
-    // console.log();
-    process.stdout.write(','+row.blue)
+  // console.log("try to test some way.");
+  /*
+  db.serialize(() => {
+    db.run(
+      `insert into union_lotto(happen_time,blue,red1,red2,red3,red4,red5,red6) values(?,?,?,?,?,?,?,?)`,
+      //  '2024-11-28',12,4,9,10,19,26,27,
+      "2024-12-01",
+      2,
+      2,
+      7,
+      11,
+      21,
+      27,
+      28,
+      (err) => {
+        // console.log("als");
+      }
+    );
   });
+  */
+  let dynamicArray = [];
+  db.each(
+    `select happen_time,blue from union_lotto order by happen_time asc`,
+    (err, row) => {
+      // console.log("data:" + row.happen_time+',blue:'+row.blue);
+      // console.log();
+      // process.stdout.write(','+row.blue)
+      //2024-12-02 22:35:04
+      //获取数字多久出现，最近。
+      dynamicArray.push(row.blue);
+    },
+    function () {
+      console.log(dynamicArray.length);
+      dynamicArray.forEach((element) => {
+        // process.stdout.write("," + element);
+      });
+      // 2024-12-02 23:03:15 总共16个数字，获取每个数字最近多少位置没出现了，
+      let array02 = new Array(16).fill(0);
+      // 倒序查找
+      for (let i3 = 1; i3 <= dynamicArray.length; i3++) {
+        if (array02[dynamicArray[i3 - 1] - 1] == 0) {
+          array02[dynamicArray[i3 - 1] - 1] = i3;
+        }
+      }
+
+      array02.forEach((element) => {
+        // process.stdout.write("," + element);
+        //问，每个数字在某一期出现的概率，假定一个策略，我们会在近期没有出现过的数字里，选出一个概率期数排位第几的数字选出，
+        //那我们选最近10期查看，
+        // 
+      });
+    }
+  );
 }
 function lotteryTicket() {
   // console.log("ssq .fc3d");
