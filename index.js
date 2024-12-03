@@ -7,7 +7,13 @@ const db = new sqlite3.Database("./db.sqlite3");
 //money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
 // lottery ticket is another can try.
 // lotteryTicket();
-lotteryTicketTest();
+// lotteryTicketTest();
+// t20241203();
+function t20241203() {
+  const math = require("./function_js/math");
+  const s = math.add(1, 2);
+  console.log(s);
+}
 function lotteryTicketTest() {
   // console.log("try to test some way.");
   /*
@@ -58,7 +64,7 @@ function lotteryTicketTest() {
         // process.stdout.write("," + element);
         //问，每个数字在某一期出现的概率，假定一个策略，我们会在近期没有出现过的数字里，选出一个概率期数排位第几的数字选出，
         //那我们选最近10期查看，
-        // 
+        //
       });
     }
   );
