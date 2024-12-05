@@ -2,6 +2,10 @@
 
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db.sqlite3");
+start();
+function start() {
+  // console.log("2024-12-05 13:17:24");
+}
 // loop in the world . make one database : [thing .record-time .happen-time .money-amount]
 // initDB_money();
 //money 's source is salary. too singular. do everything in my power to get money . only in this way can I relieve the predicament.
