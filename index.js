@@ -3,40 +3,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db.sqlite3");
 start();
-function start() {
-  // console.log("2024-12-05 13:17:24");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function start() {}
 
 // loop in the world . make one database : [thing .record-time .happen-time .money-amount]
 // initDB_money();
