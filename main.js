@@ -2,8 +2,9 @@
 
 //[0] start execute.2024-12-06 23:30:35
 
+
 // schedule_to_tomorrow() //test suc:2024-12-06 23:31:37
-schedule_to_tomorrow();
+// schedule_to_tomorrow(); //2024-12-07 00:07:15
 //[1] end execute.2024-12-06 23:30:46
 function schedule_to_tomorrow() {
   // write tomorrow start status: plan+money.
